@@ -1,0 +1,16 @@
+{
+	"ams": "192.168.1.42",
+	"cams": [
+		{
+			"name": "cam1",
+			"id": "1111111111111111111",
+			"desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+		},
+		{
+			"name": "cam2",
+			"id": "22222222222222222222",
+			"desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+
+		}
+	]
+}
