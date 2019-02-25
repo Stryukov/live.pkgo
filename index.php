@@ -101,25 +101,25 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/holder.min.js"></script>
 <script type="text/javascript">
-    flowplayer("#cam1", {
-      autoplay: false,
-      aspectRatio: "16:9",
-      clip: {
-        sources: [
-          { type: "application/x-mpegurl", src: "//172.24.180.174/LiveApp/streams/604673268291154417334870.m3u8" }
-        ]
-      }
-    });
-
-    flowplayer("#cam2", {
-      autoplay: false,
-      aspectRatio: "16:9",
-      clip: {
-        sources: [
-          { type: "application/x-mpegurl", src: "//172.24.180.174/LiveApp/streams/604673268291154417334870.m3u8" }
-        ]
-      }
-    });
+	var request = new XMLHttpRequest();
+	request.open('GET', 'cfg.json');
+	request.responseType = 'json';
+	request.send();
+	request.onload = function() {
+	  var cfg = request.response;
+	  var cams = cfg['cams'];
+	    for (var j = 0; j < cams.length; j++) {
+		    flowplayer("#"+cams[j].name, {
+		      autoplay: false,
+		      aspectRatio: "16:9",
+		      clip: {
+		        sources: [
+		          { type: "application/x-mpegurl", src: "//"+cfg.ams+"/LiveApp/streams/"+cams[j].id+".m3u8" }
+		        ]
+		      }
+		    });	    	  
+	    }
+	}	
 </script>
 </body>
 </html>
