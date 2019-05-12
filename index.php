@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="ru">
 <head>
@@ -7,15 +6,12 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="img/favicon.ico">
-
     <title>Городские камеры видеонаблюдения</title>
-
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="css/album.css" rel="stylesheet">
-    <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
+    <script src="js/playerjs.js"></script>
 </head>
 
 <body>
@@ -53,20 +49,15 @@
 </header>
 
 <main role="main">
-
-
     <div class="album py-5 bg-light">
         <div class="container">
-
             <div class="row">
                 <?php 
                     $cam = json_decode(file_get_contents("cfg.json"), true);
                     foreach ($cam[cams] as $cams){
                         echo '<div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <div id="'.$cams["name"].'" class="fp-slim">
-                                    <video data-dashjs-player src="'.$cams["src"].'" controls></video>
-                                </div>
+                                <div id="'.$cams["name"].'" class="fp-slim"></div>
                                 <div class="card-body">
                                     <p class="card-text">'.$cams["desc"].'</p>
                                 </div>
@@ -76,9 +67,7 @@
             </div>
         </div>
     </div>
-
 </main>
-
 <footer class="text-muted">
     <div class="container">
         <p class="float-right">
@@ -97,5 +86,18 @@
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/holder.min.js"></script>
+<script type="text/javascript">
+    var request = new XMLHttpRequest();
+    request.open('GET', 'cfg.json');
+    request.responseType = 'json';
+    request.send();
+    request.onload = function() {
+      var cfg = request.response;
+      var cams = cfg['cams'];
+        for (var j = 0; j < cams.length; j++) {
+            var player = new Playerjs({id:cams[j].name, file:cams[j].src});         
+        }
+    }   
+</script>
 </body>
 </html>
