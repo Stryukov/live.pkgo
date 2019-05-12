@@ -35,3 +35,8 @@ footer {
 footer p {
     margin-bottom: .25rem;
 }
+
+video {
+       width: 348px;
+       height: 195px;    
+}

@@ -1,40 +1,35 @@
 {
-	"ams": "172.24.180.174",
+	"host": "172.24.180.174",
 	"cams": [
 		{
 			"name": "cam1",
-			"id": "604673268291154417334870",
+			"src": "https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd",
 			"desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 		},
 		{
 			"name": "cam2",
-			"id": "604673268291154417334870",
+			"src": "https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd",
 			"desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-
 		},
 		{
 			"name": "cam3",
-			"id": "604673268291154417334870",
+			"src": "https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd",
 			"desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-
 		},
 		{
 			"name": "cam4",
-			"id": "604673268291154417334870",
+			"src": "https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd",
 			"desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-
 		},
 		{
 			"name": "cam5",
-			"id": "604673268291154417334870",
+			"src": "https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd",
 			"desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-
 		},
 		{
 			"name": "cam6",
-			"id": "604673268291154417334870",
+			"src": "https://dash.akamaized.net/envivio/EnvivioDash3/manifest.mpd",
 			"desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-
 		}
 	]
 }

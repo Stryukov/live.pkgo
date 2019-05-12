@@ -15,11 +15,7 @@
 
     <!-- Custom styles for this template -->
     <link href="css/album.css" rel="stylesheet">
-    <!-- Flowplayer library -->
-    <script src="//releases.flowplayer.org/7.2.4/flowplayer.min.js"></script>
-    <!-- Flowplayer hlsjs engine (light) -->
-    <script src="//releases.flowplayer.org/hlsjs/flowplayer.hlsjs.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="//releases.flowplayer.org/7.2.4/skin/skin.css">    
+    <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
 </head>
 
 <body>
@@ -65,11 +61,12 @@
             <div class="row">
                 <?php 
                     $cam = json_decode(file_get_contents("cfg.json"), true);
-                    //echo $cam["ams"];
                     foreach ($cam[cams] as $cams){
                         echo '<div class="col-md-4">
                             <div class="card mb-4 shadow-sm">
-                                <div id="'.$cams["name"].'" class="fp-slim"></div>
+                                <div id="'.$cams["name"].'" class="fp-slim">
+                                    <video data-dashjs-player src="'.$cams["src"].'" controls></video>
+                                </div>
                                 <div class="card-body">
                                     <p class="card-text">'.$cams["desc"].'</p>
                                 </div>
@@ -100,26 +97,5 @@
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/holder.min.js"></script>
-<script type="text/javascript">
-	var request = new XMLHttpRequest();
-	request.open('GET', 'cfg.json');
-	request.responseType = 'json';
-	request.send();
-	request.onload = function() {
-	  var cfg = request.response;
-	  var cams = cfg['cams'];
-	    for (var j = 0; j < cams.length; j++) {
-		    flowplayer("#"+cams[j].name, {
-		      autoplay: false,
-		      aspectRatio: "16:9",
-		      clip: {
-		        sources: [
-		          { type: "application/x-mpegurl", src: "//"+cfg.ams+"/LiveApp/streams/"+cams[j].id+".m3u8" }
-		        ]
-		      }
-		    });	    	  
-	    }
-	}	
-</script>
 </body>
 </html>
