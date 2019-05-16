@@ -51,20 +51,7 @@
 <main role="main">
     <div class="album py-5 bg-light">
         <div class="container">
-            <div class="row">
-                <?php 
-                    $cam = json_decode(file_get_contents("cfg.json"), true);
-                    foreach ($cam[cams] as $cams){
-                        echo '<div class="col-md-4">
-                            <div class="card mb-4 shadow-sm">
-                                <div id="'.$cams["name"].'" class="fp-slim"></div>
-                                <div class="card-body">
-                                    <p class="card-text">'.$cams["desc"].'</p>
-                                </div>
-                            </div>
-                        </div>';                          
-                        }?>
-            </div>
+            <div id="cams" class="row"></div>
         </div>
     </div>
 </main>
@@ -94,9 +81,20 @@
     request.onload = function() {
       var cfg = request.response;
       var cams = cfg['cams'];
+      var camsHtml = ''; 
         for (var j = 0; j < cams.length; j++) {
-            var player = new Playerjs({id:cams[j].name, file:cams[j].src});         
+            var html = '<div class="col-md-4">';
+            html += '<div class="card mb-4 shadow-sm">';
+            html += '<div id="'+cams[j].name+'" class="fp-slim"></div>';
+            html += '<div class="card-body">';
+            html += '<p class="card-text">'+cams[j].desc+'</p>';                            
+            html += '</div></div></div>';
+            camsHtml += html;
         }
+        document.getElementById("cams").innerHTML = camsHtml;                   
+        for (var j = 0; j < cams.length; j++) {
+            var player = new Playerjs({id:cams[j].name, file:cams[j].src}); 
+        }        
     }   
 </script>
 </body>
