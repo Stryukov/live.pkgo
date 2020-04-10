@@ -15,6 +15,25 @@
     }
 }
 
+@media (max-width: 560px) {
+    .navbar-brand {
+        width: 300px;
+        white-space: initial;
+    }
+    .container>a>img {
+        height: 50px;
+    }
+}
+
+@media (max-width: 400px) {
+    .navbar-brand {
+        width: 200px;
+     }
+    .container>a>strong {
+        font-size: 14px;
+    }
+}
+
 .jumbotron p:last-child {
     margin-bottom: 0;
 }
